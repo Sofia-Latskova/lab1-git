@@ -25,26 +25,27 @@ int main() {
 		cout << "1. Потенциальная энергия\n";
 		cout << "0. Выход\n";
 		cout << "2. Высота\n";
+		cout << "--------------------------------------------------\n";
 		cout << "Выберите пункт: ";
 		cin >> choice;
 		switch (choice) {
 		case 1:
-			cout << "Введите массу m и высоту h: ";
+			cout << "Введите массу m в кг. и высоту h в м.: ";
 			cin >> m >> h;
 			try {
 				double result = potentialEnergy(m, h)
-					cout << " Потенциальная энергия = " << result << "\n";
+					cout << " Потенциальная энергия = " << result << "Дж\n";
 			}
 			catch (const invalid_argument& e) {
 				cerr << e.what() << "\n";
 			}
 			break;
 		case 2:
-			cout << "Введите энергию E и массу m: ";
+			cout << "Введите энергию E в Дж. и массу m в кг.: ";
 			cin >> E >> m;
 			try {
 				double result = heightFromEnergy(E, m);
-				cout << " Высота = " << result << "\n";
+				cout << " Высота = " << result << "м\n";
 			}
 			catch (const invalid_argument& e) {
 				cerr << e.what() << "\n";
