@@ -10,6 +10,12 @@ double potentialEnergy(double m, double h) {
 	return m * h * g;
 }
 
+//Высота
+heightFromEnergy(double E, double m) {
+	if (m = < 0)throw invalid_argument("Масса не может быть отрицательной или равной нулю!");
+	return E / (m * g);
+}
+
 // ===== Главная функция: меню =====
 int main() {
 	int choice;
@@ -18,6 +24,7 @@ int main() {
 		cout << "\n=== Вариант 25: Расчет потенциальной энергии ===\n";
 		cout << "1. Потенциальная энергия\n";
 		cout << "0. Выход\n";
+		cout << "2. Высота\n";
 		cout << "Выберите пункт: ";
 		cin >> choice;
 		switch (choice) {
@@ -27,6 +34,17 @@ int main() {
 			try {
 				double result = potentialEnergy(m, h)
 					cout << " Потенциальная энергия = " << result << "\n";
+			}
+			catch (const invalid_argument& e) {
+				cerr << e.what() << "\n";
+			}
+			break;
+		case 2:
+			cout << "Введите энергию E и массу m: ";
+			cin >> E >> m;
+			try {
+				double result = heightFromEnergy(E, m);
+				cout << " Высота = " << result << "\n";
 			}
 			catch (const invalid_argument& e) {
 				cerr << e.what() << "\n";
