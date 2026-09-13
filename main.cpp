@@ -2,7 +2,9 @@
 // Лабораторная работа № 1. Вариант 25.
 // Выполнил: Лацкова С. А., группа пи-52.
 #include <iostream>
+#include <windows.h>
 #define g 9.81
+
 using namespace std;
 // ===== Расчётные функции варианта =====
 // Потенциальная энергия
@@ -13,19 +15,22 @@ double potentialEnergy(double m, double h) {
 
 //Высота
 heightFromEnergy(double E, double m) {
-	if (m = < 0)throw invalid_argument("Масса не может быть отрицательной или равной нулю!");
+	if (m <= 0)throw invalid_argument("Масса не может быть отрицательной или равной нулю!");
 	return E / (m * g);
 }
 
 // ===== Главная функция: меню =====
 int main() {
+	SetConsoleOutputCP(CP_UTF8);
+	SetConsoleCP(CP_UTF8);
 	int choice;
 	double m, h, E;
 	do {
 		cout << "\n=== Вариант 25: Расчет потенциальной энергии ===\n";
-		cout << "1. Потенциальная энергия\n";
-		cout << "0. Выход\n";
+		cout << "1. Потенциальная энергия\n";	
 		cout << "2. Высота\n";
+		cout << "0. Выход\n";
+	
 		cout << "--------------------------------------------------\n";
 		cout << "Выберите пункт: ";
 		cin >> choice;
@@ -34,7 +39,7 @@ int main() {
 			cout << "Введите массу m в кг. и высоту h в м.: ";
 			cin >> m >> h;
 			try {
-				double result = potentialEnergy(m, h)
+				double result = potentialEnergy(m, h);
 					cout << " Потенциальная энергия = " << result << "Дж\n";
 			}
 			catch (const invalid_argument& e) {
